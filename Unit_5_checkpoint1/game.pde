@@ -1,6 +1,11 @@
 void game() {
-  //print(vx);
+  //change scene
+  if (s1 > 4 || s2 > 4) {
+    mode = gameover;
+  }
+  
   background(206, 255, 251);
+  strokeWeight(5);
   fill(0, 227, 213);
   stroke(0, 191, 179);
   circle(x, y, d);
@@ -9,7 +14,12 @@ void game() {
   stroke(185, 55, 4);
   circle(x2, y2, d2);
   circle(orbx2, orby2, orbd2);
+  fill(126,236,245);
+  stroke(102,224,234);
   rect(650, 825, 100, 50);
+  textSize(30);
+  fill(0);
+  text("RESET",659,860);
 
   //movement
   if (t > 0) {
@@ -161,13 +171,8 @@ void game() {
   text(s1, 625, 50);
   fill(234, 67, 0);
   text(s2, 775, 50);
+
   
-  //change scene
-  //if (s1 > 4 || s2 > 4) {
-  //  //s1 = s1+1;
-  //  //s2 = s2+1;
-  // mode = gameover; 
-  //}
 }
 
 //CONROLES
@@ -195,8 +200,8 @@ void keyReleased() {
   if (keyCode == DOWN) skey2 = false;
 }
 
-void mouseReleased() {
-  if (mouseX > 650 && mouseX < 750 && mouseY > 825 && mouseY < 875) {
+void resetgame() {
+ if (mouseX > 650 && mouseX < 750 && mouseY > 825 && mouseY < 875) {
     t = -100;
 
     x = 400;
@@ -220,5 +225,5 @@ void mouseReleased() {
 
     vx2 = -10;
     vy2 = 0;
-  }
+  } 
 }

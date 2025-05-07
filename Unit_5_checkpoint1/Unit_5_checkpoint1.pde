@@ -47,7 +47,6 @@ final int gameover = 3;
 
 void setup() {
   size(1400, 900, P2D);
-  strokeWeight(5);
   frameRate(60);
   //music.loop();
 
@@ -56,45 +55,27 @@ void setup() {
   //bounce = new SoundFile(this,"");
   //win = new SoundFile(this,"");
 
-
-  x = 400;
-  y = 450;
-  d = 80;
-
-  x2 = 1000;
-  y2 = 450;
-  d2 = 80;
-
-  orbx = 400;
-  orby = 200;
-  orbd = 50;
-
-  orbx2 = 1000;
-  orby2 = 200;
-  orbd2 = 50;
-
-  vx = 10;
-  vy = 0;
-
-  vx2 = -10;
-  vy2 = 0;
-
-  s1 = 0;
-  s2 = 0;
-
-  t = 1;
-
-  mode = game;
+  mode = intro;
 }
 
 void draw() {
   if  (mode == intro) {
     intro();
-  }
-  if (mode == game) {
+  } else if (mode == game) {
     game();
   } else if (mode == gameover) {
     gameover();
+  } else {
+    println("error! mode is " + mode);
+  }
+}
+void mouseReleased() {
+  if  (mode == intro) {
+    gamestart();
+  } else if (mode == game) {
+    resetgame();
+  } else if (mode == gameover) {
+    resetgameover();
   } else {
     println("error! mode is" + mode);
   }
