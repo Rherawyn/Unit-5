@@ -3,7 +3,7 @@ void game() {
   if (s1 > 4 || s2 > 4) {
     mode = gameover;
   }
-  
+
   background(206, 255, 251);
   strokeWeight(5);
   fill(0, 227, 213);
@@ -14,12 +14,12 @@ void game() {
   stroke(185, 55, 4);
   circle(x2, y2, d2);
   circle(orbx2, orby2, orbd2);
-  fill(126,236,245);
-  stroke(102,224,234);
+  fill(126, 236, 245);
+  stroke(102, 224, 234);
   rect(650, 825, 100, 50);
   textSize(30);
   fill(0);
-  text("RESET",659,860);
+  text("RESET", 659, 860);
 
   //movement
   if (t > 0) {
@@ -27,12 +27,21 @@ void game() {
     if (dkey) x = x + 7;
     if (wkey) y = y - 7;
     if (skey) y = y + 7;
-
     if (akey2) x2 = x2 - 7;
     if (dkey2) x2 = x2 + 7;
     if (wkey2) y2 = y2 - 7;
     if (skey2) y2 = y2 + 7;
   }
+  
+  if (x >= width-40) x = width-40;
+  if (x <= 40) x = 40;
+  if (y >= height-40) y = height-40;
+  if (y <= 40) y = 40;
+  if (x2 >= width-40) x2 = width-40;
+  if (x2 <= 40) x2 = 40;
+  if (y2 >= height-40) y2 = height-40;
+  if (y2 <= 40) y2 = 40;
+
 
   //gravity
 
@@ -71,20 +80,45 @@ void game() {
   if (vy2 < -15) vy2 += 3;
 
   //bouncy bounce
-  if (orbx < 30 || orbx > width-30) {
+
+  if (orbx > width-30) {
     vx = -vx;
+    orbx = width-30;
   }
 
-  if (orby < 30 || orby > height-30) {
+  if (orbx < 30) {
+    vx = -vx;
+    orbx = 30;
+  }
+
+  if (orby > height-30) {
     vy = -vy;
+    orby = height-30;
   }
 
-  if (orbx2 < 30 || orbx2 > width-30) {
+  if (orby < 30) {
+    vy = -vy;
+    orby = 30;
+  }
+
+  if (orbx2 > width-30) {
     vx2 = -vx2;
+    orbx2 = width-30;
   }
 
-  if (orby2 < 30 || orby2 > height-30) {
+  if (orbx2 < 30) {
+    vx2 = -vx2;
+    orbx2 = 30;
+  }
+
+  if (orby2 > height-30) {
     vy2 = -vy2;
+    orby2 = height-30;
+  }
+
+  if (orby2 < 30) {
+    vy2 = -vy2;
+    orby2 = 30;
   }
 
   //collisions
@@ -171,8 +205,6 @@ void game() {
   text(s1, 625, 50);
   fill(234, 67, 0);
   text(s2, 775, 50);
-
-  
 }
 
 //CONROLES
@@ -201,7 +233,7 @@ void keyReleased() {
 }
 
 void resetgame() {
- if (mouseX > 650 && mouseX < 750 && mouseY > 825 && mouseY < 875) {
+  if (mouseX > 650 && mouseX < 750 && mouseY > 825 && mouseY < 875) {
     t = -100;
 
     x = 400;
@@ -225,5 +257,5 @@ void resetgame() {
 
     vx2 = -10;
     vy2 = 0;
-  } 
+  }
 }
