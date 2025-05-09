@@ -18,6 +18,15 @@ float orbx2, orby2, orbd2; // orb pos/diam
 float vx2, vy2;           // orb velocity
 float ax2, ay2;           //orb gravity
 
+//power ups
+float px, py, pd; // power up stuffs
+
+int power;
+
+final int smallball = 0;
+final int sheild = 1;
+final int speed = 2;
+
 //key variables
 boolean akey, dkey, skey, wkey;
 
@@ -30,6 +39,9 @@ int s2;
 
 // timer variable
 int t;
+
+// power up timer variable
+int t2;
 
 //mode framework
 int mode;

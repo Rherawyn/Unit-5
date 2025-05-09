@@ -12,6 +12,7 @@ void intro () {
 void gamestart() {
   if (mouseX > 500 && mouseX < 900 && mouseY > 350 && mouseY < 550) {
     t = -100;
+    t2 = -100;
 
     x = 400;
     y = 450;

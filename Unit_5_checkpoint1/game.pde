@@ -32,7 +32,7 @@ void game() {
     if (wkey2) y2 = y2 - 7;
     if (skey2) y2 = y2 + 7;
   }
-  
+
   if (x >= width-40) x = width-40;
   if (x <= 40) x = 40;
   if (y >= height-40) y = height-40;
@@ -145,6 +145,7 @@ void game() {
   // Scoring system
   if (dist(x, y, orbx2, orby2) <= 65) {
     t = -100;
+    t2 = -100;
 
     x = 400;
     y = 450;
@@ -171,6 +172,7 @@ void game() {
     s2 += 1;
   } else if (dist(x2, y2, orbx, orby) <= 65) {
     t = -100;
+    t2 = -100;
 
     x = 400;
     y = 450;
@@ -198,6 +200,12 @@ void game() {
   }
 
   t += 1;
+  t2 += 1;
+
+  //power ups
+  if (t2 >= 100) {
+    powerUp();
+  }
 
   //score
   textSize(50);
@@ -235,6 +243,7 @@ void keyReleased() {
 void resetgame() {
   if (mouseX > 650 && mouseX < 750 && mouseY > 825 && mouseY < 875) {
     t = -100;
+    t2 = -100;
 
     x = 400;
     y = 450;

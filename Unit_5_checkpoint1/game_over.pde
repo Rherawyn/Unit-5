@@ -12,6 +12,7 @@ void gameover () {
 void resetgameover() {
  if (mouseX > 650 && mouseX < 750 && mouseY > 825 && mouseY < 875) {
     t = -100;
+    t2 = -100;
 
     x = 400;
     y = 450;
