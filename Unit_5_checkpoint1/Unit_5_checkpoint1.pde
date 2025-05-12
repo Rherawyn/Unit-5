@@ -21,10 +21,14 @@ float ax2, ay2;           //orb gravity
 //power ups
 float px, py, pd; // power up stuffs
 
+boolean speedUp;
+
+boolean speedUp2;
+
 int power;
 
 final int smallball = 0;
-final int sheild = 1;
+final int shield = 1;
 final int speed = 2;
 
 //key variables
@@ -68,6 +72,7 @@ void setup() {
   //win = new SoundFile(this,"");
 
   mode = intro;
+  pUpOn = false;
 }
 
 void draw() {
@@ -82,6 +87,7 @@ void draw() {
   }
 }
 void mouseReleased() {
+  pUpOn();
   if  (mode == intro) {
     gamestart();
   } else if (mode == game) {

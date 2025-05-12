@@ -22,15 +22,36 @@ void game() {
   text("RESET", 659, 860);
 
   //movement
-  if (t > 0) {
-    if (akey) x = x - 7;
-    if (dkey) x = x + 7;
-    if (wkey) y = y - 7;
-    if (skey) y = y + 7;
-    if (akey2) x2 = x2 - 7;
-    if (dkey2) x2 = x2 + 7;
-    if (wkey2) y2 = y2 - 7;
-    if (skey2) y2 = y2 + 7;
+  if (speedUp) {
+    if (t > 0) {
+      if (akey) x = x - 10;
+      if (dkey) x = x + 10;
+      if (wkey) y = y - 10;
+      if (skey) y = y + 10;
+    }
+  } else if (!speedUp) {
+    if (t > 0) {
+      if (akey) x = x - 7;
+      if (dkey) x = x + 7;
+      if (wkey) y = y - 7;
+      if (skey) y = y + 7;
+    }
+  }
+
+  if (speedUp2) {
+    if (t > 0) {
+      if (akey2) x2 = x2 - 10;
+      if (dkey2) x2 = x2 + 10;
+      if (wkey2) y2 = y2 - 10;
+      if (skey2) y2 = y2 + 10;
+    }
+  } else if (!speedUp2) {
+    if (t > 0) {
+      if (akey2) x2 = x2 - 7;
+      if (dkey2) x2 = x2 + 7;
+      if (wkey2) y2 = y2 - 7;
+      if (skey2) y2 = y2 + 7;
+    }
   }
 
   if (x >= width-40) x = width-40;
@@ -122,13 +143,13 @@ void game() {
   }
 
   //collisions
-  if (dist(x2, y2, orbx2, orby2) <= 65) {
+  if (dist(x2, y2, orbx2, orby2) <= (d2 /2) + (orbd2 /2)) {
     vx2 = (orbx2 - x2)/5;
     vy2 = (orby2 - y2)/5;
     //bounce();
   }
 
-  if (dist(x, y, orbx, orby) <= 65) {
+  if (dist(x, y, orbx, orby) <= (d /2) + (orbd /2)) {
     vx = (orbx - x)/5;
     vy = (orby - y)/5;
     //bounce();
@@ -143,7 +164,7 @@ void game() {
   //}
 
   // Scoring system
-  if (dist(x, y, orbx2, orby2) <= 65) {
+  if (dist(x, y, orbx2, orby2) <= (d /2) + (orbd2 /2)) {
     t = -100;
     t2 = -100;
 
@@ -170,7 +191,7 @@ void game() {
     vy2 = 0;
 
     s2 += 1;
-  } else if (dist(x2, y2, orbx, orby) <= 65) {
+  } else if (dist(x2, y2, orbx, orby) <= (d2 /2) + (orbd /2)) {
     t = -100;
     t2 = -100;
 
@@ -203,8 +224,16 @@ void game() {
   t2 += 1;
 
   //power ups
-  if (t2 >= 100) {
-    powerUp();
+  if (pUpOn) {
+    if (t2 >= 100) {
+      d = 80;
+      d2 = 80;
+      orbd = 50;
+      orbd2 = 50;
+      speedUp = false;
+      speedUp2 = false;
+      powerUp();
+    }
   }
 
   //score
@@ -217,10 +246,10 @@ void game() {
 
 //CONROLES
 void keyPressed() {
-  if (key == 'a') akey = true;
-  if (key == 'd') dkey = true;
-  if (key == 's') skey = true;
-  if (key == 'w') wkey = true;
+  if (key == 'a' || key == 'A') akey = true;
+  if (key == 'd' || key == 'D') dkey = true;
+  if (key == 's' || key == 'S') skey = true;
+  if (key == 'w' || key == 'W') wkey = true;
 
   if (keyCode == RIGHT) dkey2 = true;
   if (keyCode == LEFT) akey2 = true;
@@ -229,10 +258,10 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (key == 'a') akey = false;
-  if (key == 'd') dkey = false;
-  if (key == 's') skey = false;
-  if (key == 'w') wkey = false;
+  if (key == 'a' || key == 'A') akey = false;
+  if (key == 'd' || key == 'D') dkey = false;
+  if (key == 's' || key == 'S') skey = false;
+  if (key == 'w' || key == 'W') wkey = false;
 
   if (keyCode == RIGHT) dkey2 = false;
   if (keyCode == LEFT) akey2 = false;
