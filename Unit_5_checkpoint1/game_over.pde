@@ -29,6 +29,13 @@ void resetgameover() {
     orbx2 = 1000;
     orby2 = 200;
     orbd2 = 50;
+    
+    badx = 700;
+    bady = 450;
+    badd = 100;
+    
+    bx = 5;
+    by = 5;
 
     vx = 10;
     vy = 0;

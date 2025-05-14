@@ -1,4 +1,4 @@
-//import processing.sound.*;
+import processing.sound.*;
 
 // ball
 float x, y, //position
@@ -28,7 +28,7 @@ boolean speedUp2;
 int power;
 
 final int smallball = 0;
-final int shield = 1;
+final int bigball = 1;
 final int speed = 2;
 
 //key variables
@@ -57,7 +57,7 @@ final int gameover = 3;
 
 //sound variable
 //SoundFile music;
-//SoundFile bounce;
+SoundFile bounce;
 //SoundFile win;
 
 
@@ -68,11 +68,13 @@ void setup() {
 
   //load sounds
   //music = new SoundFile(this,"");
-  //bounce = new SoundFile(this,"");
+  bounce = new SoundFile(this, "bounce.wav");
   //win = new SoundFile(this,"");
 
   mode = intro;
   pUpOn = false;
+  dif1 = false;
+  dif2 = false;
 }
 
 void draw() {
@@ -87,11 +89,11 @@ void draw() {
   }
 }
 void mouseReleased() {
-  pUpOn();
   if  (mode == intro) {
     gamestart();
   } else if (mode == game) {
     resetgame();
+    returnmenu();
   } else if (mode == gameover) {
     resetgameover();
   } else {
@@ -99,7 +101,7 @@ void mouseReleased() {
   }
 }
 
-//void bounce() {
-// bounce.stop();
-// bounce.play();
-//}
+void bounce() {
+  bounce.stop();
+  bounce.play();
+}

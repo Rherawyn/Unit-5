@@ -4,7 +4,7 @@ void powerUp () {
     fill(57, 154, 255);
     stroke(42, 140, 242);
     circle(px, py, pd);
-  } else if (power == shield) {
+  } else if (power == bigball) {
     fill(245, 234, 175);
     stroke(252, 235, 133);
     circle(px, py, pd);
@@ -18,7 +18,7 @@ void powerUp () {
   if (dist(x, y, px, py) <= d /2 + 25) {
     if (power == smallball) {
       d = 60;
-    } else if (power == shield) {
+    } else if (power == bigball) {
       orbd = 70;
     } else if (power == speed) {
       speedUp = true;
@@ -30,7 +30,7 @@ void powerUp () {
   } else if (dist(x2, y2, px, py) <= d2 /2 + 25) {
     if (power == smallball) {
       d2 = 60;
-    } else if (power == shield) {
+    } else if (power == bigball) {
       orbd2 = 70;
     } else if (power == speed) {
       speedUp2 = true;
