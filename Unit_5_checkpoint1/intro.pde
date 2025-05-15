@@ -40,6 +40,8 @@ void intro () {
     text("Medium", 630, 250);
   } else if (difficulty == 2) {
     text("Hard", 660, 250);
+  } else if (difficulty == 3) {
+    text("Extreme", 630, 250);
   }
   fill(57, 154, 255);
   stroke(42, 140, 242);
@@ -79,8 +81,7 @@ void gamestart() {
     bady = 450;
     badd = 100;
     
-    bx = 5;
-    by = 5;
+    enemydirection ();
 
     vx = 10;
     vy = 0;
@@ -106,7 +107,7 @@ void gamestart() {
       difficulty -= 1;
     }
   } else if (mouseX > 725 && mouseX < 775 && mouseY > 275 && mouseY < 325) {
-    if (difficulty <= 1) {
+    if (difficulty <= 2) {
       difficulty += 1;
     }
   }

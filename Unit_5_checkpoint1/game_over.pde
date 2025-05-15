@@ -34,8 +34,7 @@ void resetgameover() {
     bady = 450;
     badd = 100;
     
-    bx = 5;
-    by = 5;
+    enemydirection ();
 
     vx = 10;
     vy = 0;

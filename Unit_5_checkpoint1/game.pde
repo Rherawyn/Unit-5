@@ -166,7 +166,7 @@ void game() {
   //}
 
   // Scoring system
-  if (dist(x, y, orbx2, orby2) <= (d /2) + (orbd2 /2) || (dist(x, y, badx, bady) <= (d2 /2) + (badd /2))) {
+  if (dist(x, y, orbx2, orby2) <= (d /2) + (orbd2 /2)){
     t = -100;
     t2 = -100;
 
@@ -190,8 +190,7 @@ void game() {
     bady = 450;
     badd = 100;
     
-    bx = 5;
-    by = 5;
+    enemydirection ();
 
     vx = 10;
     vy = 0;
@@ -200,7 +199,7 @@ void game() {
     vy2 = 0;
 
     s2 += 1;
-  } else if (dist(x2, y2, orbx, orby) <= (d2 /2) + (orbd /2) || (dist(x2, y2, badx, bady) <= (d2 /2) + (badd /2))) {
+  } else if (dist(x2, y2, orbx, orby) <= (d2 /2) + (orbd /2)) {
     t = -100;
     t2 = -100;
 
@@ -224,8 +223,7 @@ void game() {
     bady = 450;
     badd = 100;
     
-    bx = 5;
-    by = 5;
+    enemydirection ();
 
     vx = 10;
     vy = 0;
@@ -313,8 +311,7 @@ void resetgame() {
     bady = 450;
     badd = 100;
     
-    bx = 5;
-    by = 5;
+    enemydirection ();
 
     vx = 10;
     vy = 0;
