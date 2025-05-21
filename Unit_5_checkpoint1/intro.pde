@@ -2,6 +2,39 @@ boolean pUpOn;
 boolean dif1;
 boolean dif2;
 
+int pc1;
+int pc2;
+
+//color options
+//player 1
+color default1 = #00E3D5;
+color default1s = #00BFB3;
+
+color green = #24FFA2;
+color greens = #1CE891;
+
+color lime = #C0FF2E;
+color limes = #B4F225;
+
+color olive = #A0C42D;
+color olives = #94B725;
+
+//player 2
+color default2 = #EA4300;
+color default2s = #B93704;
+
+color orange = #F59516;
+color oranges = #DE8816;
+
+color yellow = #ECED26;
+color yellows = #E2E329;
+
+color rose = #F71653;
+color roses = #D82152;
+
+color blacks = #323232;
+color black = #4B4B4B;
+
 void intro () {
   background(206, 255, 251);
 
@@ -54,6 +87,53 @@ void intro () {
   circle(1125, 550, 80);
   triangle(625, 300, 675, 275, 675, 325);
   triangle(775, 300, 725, 275, 725, 325);
+
+  // cosmetic indicators
+  fill(0);
+  textSize(40);
+  text("Player 1", 85, 125);
+  text("Player 2", 285, 125);
+  //player 1
+  fill(default1);
+  stroke(default1s);
+  circle(150, 200, 100);
+
+  fill(green);
+  stroke(greens);
+  circle(150, 350, 100);
+
+  fill(lime);
+  stroke(limes);
+  circle(150, 500, 100);
+
+  fill(olive);
+  stroke(olives);
+  circle(150, 650, 100);
+
+  fill(black);
+  stroke(blacks);
+  circle(150, 800, 100);
+
+  //player 2
+  fill(default2);
+  stroke(default2s);
+  circle(350, 200, 100);
+
+  fill(rose);
+  stroke(roses);
+  circle(350, 350, 100);
+
+  fill(orange);
+  stroke(oranges);
+  circle(350, 500, 100);
+
+  fill(yellow);
+  stroke(yellows);
+  circle(350, 650, 100);
+
+  fill(black);
+  stroke(blacks);
+  circle(350, 800, 100);
 }
 
 void gamestart() {
@@ -76,11 +156,11 @@ void gamestart() {
     orbx2 = 1000;
     orby2 = 200;
     orbd2 = 50;
-    
+
     badx = 700;
     bady = 450;
     badd = 100;
-    
+
     enemydirection ();
 
     vx = 10;
@@ -98,6 +178,7 @@ void gamestart() {
     power = int(random(3));
   }
 
+  //powerup stuff
   if (mouseX > 1050 && mouseX < 1200 && mouseY > 650 && mouseY < 725) {
     pUpOn = !pUpOn;
   }
@@ -110,5 +191,39 @@ void gamestart() {
     if (difficulty <= 2) {
       difficulty += 1;
     }
+  }
+
+  // cosmetic stuff
+  //player1
+  if (dist(150, 200, mouseX, mouseY) < 50) {
+    pc1 = 1;
+  }
+  if (dist(150, 350, mouseX, mouseY) < 50) {
+    pc1 = 2;
+  }
+  if (dist(150, 500, mouseX, mouseY) < 50) {
+    pc1 = 3;
+  }
+  if (dist(150, 650, mouseX, mouseY) < 50) {
+    pc1 = 4;
+  }
+  if (dist(150, 800, mouseX, mouseY) < 50) {
+    pc1 = 5;
+  }
+  //player2
+  if (dist(350, 200, mouseX, mouseY) < 50) {
+    pc2 = 1;
+  }
+  if (dist(350, 350, mouseX, mouseY) < 50) {
+    pc2 = 2;
+  }
+  if (dist(350, 500, mouseX, mouseY) < 50) {
+    pc2 = 3;
+  }
+  if (dist(350, 650, mouseX, mouseY) < 50) {
+    pc2 = 4;
+  }
+  if (dist(350, 800, mouseX, mouseY) < 50) {
+    pc2 = 5;
   }
 }

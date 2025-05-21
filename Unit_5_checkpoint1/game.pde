@@ -6,12 +6,40 @@ void game() {
 
   background(206, 255, 251);
   strokeWeight(5);
-  fill(0, 227, 213);
-  stroke(0, 191, 179);
+  if (pc1 = 1) {
+  fill(default1);
+  stroke(default1s);
+  } else if (pc1 = 2) {
+  fill(green);
+  stroke(greens);
+  } else if (pc1 = 3) {
+  fill(lime);
+  stroke(limes);
+  } else if (pc1 = 4) {
+  fill(olive);
+  stroke(olives);
+  } else if (pc1 = 5) {
+  fill(black);
+  stroke(blacks);
+  }
   circle(x, y, d);
   circle(orbx, orby, orbd);
-  fill(234, 67, 0);
-  stroke(185, 55, 4);
+  if (pc2 = 1) {
+  fill(default2);
+  stroke(default2s);
+  } else if (pc2 = 2) {
+  fill(rose);
+  stroke(roses);
+  } else if (pc2 = 3) {
+  fill(orange);
+  stroke(oranges);
+  } else if (pc2 = 4) {
+  fill(yellow);
+  stroke(yellows);
+  } else if (pc2 = 5) {
+  fill(black);
+  stroke(blacks);
+  }
   circle(x2, y2, d2);
   circle(orbx2, orby2, orbd2);
   fill(126, 236, 245);
