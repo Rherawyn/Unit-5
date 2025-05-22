@@ -5,43 +5,50 @@ void game() {
   }
 
   background(206, 255, 251);
+  
+  //diffuclty effect - emeny / obsticals
+    difficulty ();
+    
+  //players
   strokeWeight(5);
-  if (pc1 = 1) {
+  if (pc1 == 1) {
   fill(default1);
   stroke(default1s);
-  } else if (pc1 = 2) {
+  } else if (pc1 == 2) {
   fill(green);
   stroke(greens);
-  } else if (pc1 = 3) {
+  } else if (pc1 == 3) {
   fill(lime);
   stroke(limes);
-  } else if (pc1 = 4) {
+  } else if (pc1 == 4) {
   fill(olive);
   stroke(olives);
-  } else if (pc1 = 5) {
+  } else if (pc1 == 5) {
   fill(black);
   stroke(blacks);
   }
   circle(x, y, d);
   circle(orbx, orby, orbd);
-  if (pc2 = 1) {
+  if (pc2 == 1) {
   fill(default2);
   stroke(default2s);
-  } else if (pc2 = 2) {
+  } else if (pc2 == 2) {
   fill(rose);
   stroke(roses);
-  } else if (pc2 = 3) {
+  } else if (pc2 == 3) {
   fill(orange);
   stroke(oranges);
-  } else if (pc2 = 4) {
+  } else if (pc2 == 4) {
   fill(yellow);
   stroke(yellows);
-  } else if (pc2 = 5) {
+  } else if (pc2 == 5) {
   fill(black);
   stroke(blacks);
   }
   circle(x2, y2, d2);
   circle(orbx2, orby2, orbd2);
+  
+  //buttons
   fill(126, 236, 245);
   stroke(102, 224, 234);
   rect(650, 825, 100, 50);
@@ -284,9 +291,6 @@ void game() {
   text(s1, 600, 60);
   fill(234, 67, 0);
   text(s2, 775, 60);
-  
-  //diffuclty effect
-    difficulty ();
 }
 
 //CONROLES

@@ -54,6 +54,7 @@ final int intro = 0;
 final int game = 1;
 final int pause = 2;
 final int gameover = 3;
+final int options = 4;
 
 //sound variable
 //SoundFile music;
@@ -75,6 +76,9 @@ void setup() {
   pUpOn = false;
   dif1 = false;
   dif2 = false;
+  
+  pc1 = 1;
+  pc2 = 1;
 }
 
 void draw() {
@@ -84,6 +88,8 @@ void draw() {
     game();
   } else if (mode == gameover) {
     gameover();
+  } else if (mode == options){
+    options();
   } else {
     println("error! mode is " + mode);
   }
@@ -96,6 +102,8 @@ void mouseReleased() {
     returnmenu();
   } else if (mode == gameover) {
     resetgameover();
+  } else if (mode == options) {
+    setting();
   } else {
     println("error! mode is" + mode);
   }
