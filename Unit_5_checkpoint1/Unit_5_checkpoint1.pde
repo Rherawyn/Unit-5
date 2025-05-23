@@ -61,7 +61,6 @@ final int options = 4;
 SoundFile bounce;
 //SoundFile win;
 
-
 void setup() {
   size(1400, 900, P2D);
   frameRate(60);
@@ -102,6 +101,7 @@ void mouseReleased() {
     returnmenu();
   } else if (mode == gameover) {
     resetgameover();
+    returnmenu();
   } else if (mode == options) {
     setting();
   } else {

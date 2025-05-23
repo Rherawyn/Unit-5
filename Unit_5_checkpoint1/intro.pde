@@ -1,4 +1,9 @@
+int tr;
+
 void intro () {
+  
+  tr = 255;
+  
   background(206, 255, 251);
 
   //start / options button
@@ -49,13 +54,14 @@ void gamestart() {
 
     s1 = 0;
     s2 = 0;
+
     mode = game;
 
     px = random(30, width-30);
     py = random(30, height-30);
     power = int(random(3));
   }
-  
+
   if (mouseX > 600 && mouseX < 800 && mouseY > 575 && mouseY < 675) {
     mode = options;
   }
